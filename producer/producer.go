@@ -7,6 +7,7 @@ import (
 	model "gorabbitmq/model"
 	"time"
 
+	"github.com/google/uuid"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
@@ -17,7 +18,6 @@ func main() {
 	Producer(rmq)
 	common.Close(rmq)
 }
-
 
 func Producer(rmq *model.RabbitMQ) {
 	Queue(rmq)
@@ -51,7 +51,7 @@ func Publish(rmq *model.RabbitMQ) {
 		false,
 		amqp.Publishing{
 			ContentType: "text/plain",
-			Body:        []byte("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"),
+			Body:        []byte(uuid.New().String()),
 		},
 	)
 	common.FailOnError(rmq.Err, "Publish Fail")
