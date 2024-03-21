@@ -7,7 +7,7 @@ On linux run
 ```
 $sudo chmod +x a.sh
 $./a.sh
-$go mod download
+$go get -u -v -f all
 ```
 This will install rabbitMq on you Linux machine
 
