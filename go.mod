@@ -1,4 +1,4 @@
-module github.com/anuragsoni300/gorabbitmq
+module gorabbitmq
 
 go 1.22.1
 
