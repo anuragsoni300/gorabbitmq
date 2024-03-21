@@ -31,6 +31,6 @@ Password: guest
 
 Now run both command in different terminal
 ```
-$go run producer/producer.go
-$go run consumer/consumer.go
+$go run rabbitmq/producer/producer.go
+$go run rabbitmq/consumer/consumer.go
 ```

@@ -2,7 +2,7 @@ package common
 
 import (
 	"log"
-	model "gorabbitmq/model"
+	model "gorabbitmq/rabbitmq/model"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	common "gorabbitmq/common"
-	model "gorabbitmq/model"
+	common "gorabbitmq/rabbitmq/common"
+	model "gorabbitmq/rabbitmq/model"
 )
 
 func main() {
