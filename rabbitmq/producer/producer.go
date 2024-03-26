@@ -1,4 +1,4 @@
-package main
+package producer
 
 import (
 	"context"
@@ -11,13 +11,13 @@ import (
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
-func main() {
-	rmq := &model.RabbitMQ{}
-	common.Start(rmq)
-	common.Channel(rmq)
-	Producer(rmq)
-	common.Close(rmq)
-}
+// func main() {
+// 	rmq := &model.RabbitMQ{}
+// 	common.Start(rmq)
+// 	common.Channel(rmq)
+// 	Producer(rmq)
+// 	common.Close(rmq)
+// }
 
 func Producer(rmq *model.RabbitMQ) {
 	Queue(rmq)

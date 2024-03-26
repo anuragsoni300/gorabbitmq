@@ -3,17 +3,19 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"strings"
 
 	_ "github.com/lib/pq" // Indirect Use
 )
 
-func main() {
-	OpenDBConnection()
-}
+// func main() {
+// 	OpenDBConnection()
+// }
 
 type Album struct {
-	glusr_usr_id int64
+	glusr_usr_id      int64
+	fk_gl_country_iso string
+	fk_gl_city_id     int64
+	fk_gl_state_id    int64
 }
 
 func OpenDBConnection() error {
@@ -25,11 +27,11 @@ func OpenDBConnection() error {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		r, _ := db.Query("select glusr_usr_id from im_dwh.dim_glusr_usr limit 100")
-		c, _ := r.Columns()
-		fmt.Println(strings.Join(c, "\n"))
-		for r.Next() {
-			r.Scan(&alb.glusr_usr_id)
+		rows, _ := db.Query("select glusr_usr_id, fk_gl_country_iso, fk_gl_city_id, fk_gl_state_id from im_dwh.dim_glusr_usr limit 100")
+		// columns, _ := rows.Columns()
+		// fmt.Println(strings.Join(columns, "\n"))
+		for rows.Next() {
+			rows.Scan(&alb.glusr_usr_id, &alb.fk_gl_country_iso, &alb.fk_gl_city_id, &alb.fk_gl_state_id)
 			albums = append(albums, alb)
 		}
 		for _, val := range albums {

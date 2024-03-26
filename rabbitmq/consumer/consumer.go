@@ -1,4 +1,4 @@
-package main
+package consumer
 
 import (
 	"fmt"
@@ -6,13 +6,13 @@ import (
 	model "gorabbitmq/rabbitmq/model"
 )
 
-func main() {
-	rmq := &model.RabbitMQ{}
-	common.Start(rmq)
-	common.Channel(rmq)
-	Consumer(rmq)
-	common.Close(rmq)
-}
+// func main() {
+// 	rmq := &model.RabbitMQ{}
+// 	common.Start(rmq)
+// 	common.Channel(rmq)
+// 	Consumer(rmq)
+// 	common.Close(rmq)
+// }
 
 func Consumer(rmq *model.RabbitMQ) {
 	Consume(rmq)
